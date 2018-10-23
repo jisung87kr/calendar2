@@ -5,11 +5,13 @@
     $lastDay = date('w', strtotime(date("Ym", $input).$totalDay)); //마지막 요일
     $totalWeek = ceil(($firstDay+$totalDay)/7); //이달의 주수
 
-    $prev = date("Ymd", strtotime("-1 month", $input)); //이전달
-    $next = date("Ymd", strtotime("+1 month", $input)); //다음달
+    $prev = strtotime("-1 month", $input); //이전달
+    $next = strtotime("+1 month", $input); //다음달
  ?>
- <h1><?php echo date('Ymd', $input); ?></h1>
-<table>
+<table class="table">
+    <input type="hidden" name="current" value="<?php echo date('Y년m월', $input); ?>" class="current">
+    <input type="hidden" name="prev" value="<?php echo $prev?>" class="prev">
+    <input type="hidden" name="next" value="<?php echo $next?>" class="next">
     <thead>
         <tr>
             <th>일</th>
