@@ -1,13 +1,17 @@
+<?php include_once '/include/class.php' ?>
+<?php include_once '/include/config.php' ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <title>달력</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-5C8TGNupopdjruopVTTrVJacBbWqxHK9eis5DB+DYE6RfqIJapdLBRUdaZBTq7mE" crossorigin="anonymous"> -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </head>
     <style media="screen">
     .head{
@@ -30,6 +34,14 @@
         vertical-align: middle;
     }
 
+    #write>*{
+        margin-bottom: 5px;
+    }
+
+    #write .submit{
+        width: 100%;
+    }
+
     </style>
     <body>
         <div class="container">
@@ -44,12 +56,44 @@
                     <input type="hidden" name="next" value="" class="next btn">
                 </button>
             </div>
-            <div class="body">
-                <div id="calendar"></div>
+            <div class="body row">
+                <div id="calendar" class="col-sm-7"></div>
+                <div id="panel" class="col-sm-5">
+                    <div class="panel panel-default">
+                        <form class="panel-body" action="index.html" method="post">
+                            <input type="text" name="" value="" placeholder="search" class="form-control">
+                            <input type="submit" name="" value="검색" class="btn btn-default">
+                        </form>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">이달 일정</div>
+                        <div class="panel-body">
+                            리스트
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">일정등록</div>
+                        <form class="panel-body" action="write.php" method="post" id="write">
+                            <input type="text" name="title" value="" placeholder="제목" class="title form-control">
+                            <input type="text" name="s_date" value="" placeholder="시작일" class="s_date form-control" data-provide="datepicker">
+                            <input type="text" name="e_date" value="" placeholder="종료일" class="e_date form-control" data-provide="datepicker">
+                            <textarea name="content" rows="8" cols="80" class="content form-control"></textarea>
+                            <input type="submit" name="" value="등록" class="btn btn-default submit">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript">
             $(document).ready(function(){
+                $( ".s_date, .e_date" ).datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+                    dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+                    monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+                });
+
                 function getCal(_date){
                     var _date = _date ? _date : '<?php echo time()?>';
                     $.ajax({
