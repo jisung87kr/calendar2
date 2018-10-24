@@ -6,43 +6,16 @@
     <head>
         <meta charset="utf-8">
         <title>달력</title>
+        <link rel="stylesheet" href="./css/master.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/cosmo/bootstrap.min.css"> -->
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </head>
-    <style media="screen">
-    .head{
-        text-align: center;
-        border: 1px solid #ccc;
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .head button{
-        display: inline-block;
-        background: none;
-        border: none;
-        vertical-align: middle;
-    }
-
-    .head h1{
-        display: inline;
-        vertical-align: middle;
-    }
-
-    #write>*{
-        margin-bottom: 5px;
-    }
-
-    #write .submit{
-        width: 100%;
-    }
-
-    </style>
     <body>
         <div class="container">
             <div class="head">

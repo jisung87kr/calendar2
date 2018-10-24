@@ -8,5 +8,5 @@
     $stmt->execute();
     $stmt->close();
     $insertId = $mysqli->insert_id;
-    //header('location:'.$_SERVER['HTTP_REFERER']);
+    header('location:'.$_SERVER['HTTP_REFERER']);
  ?>
