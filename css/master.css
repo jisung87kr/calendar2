@@ -48,3 +48,14 @@
 .tb-row .tb-layout td{
     border: 1px solid #ddd;
 }
+
+.tb-list{
+    position: relative;
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.schedule-td{
+    background: #ccc;
+}

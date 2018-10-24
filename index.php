@@ -1,5 +1,5 @@
-<?php include_once '/include/class.php' ?>
-<?php include_once '/include/config.php' ?>
+<?php include_once './include/class.php' ?>
+<?php include_once './include/config.php' ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
